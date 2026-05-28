@@ -1,0 +1,22 @@
+# DSF Sidekick
+
+DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function呼び出しごとに一意なstorage領域を動的に確保し、その参照IDをmacro引数として受け渡すことで、Minecraft functionに疑似的なローカル変数環境を提供する仕組み、およびコード設計パターンです。
+
+これにより、1 tick内で完結する「初期化・ループ・完了」の一連の処理を、単一のfunction内に記述しつつ、再帰呼び出しやネストした呼び出しに対しても状態衝突を起こさない、再入可能な実装が可能になります。
+この仕組みを利用した関数を「**frame関数**」と呼びます。
+
+---
+
+### issue_with_run 関数
+
+`dsf:data/handle/issue_with_run`は、新しいframe用のhandleを発行し、指定された初期引数にそのhandleを追加して、対象のframe関数を実行するための補助関数です。
+
+通常、frame関数を開始するには、先にhandleを発行し、そのhandleと初期引数を組み合わせてframe関数を呼び出す必要があります。`issue_with_run`関数はこの手続きをまとめて行い、開発者がhandle発行処理を個別に記述せずにframe関数を開始できるようにします。
+
+---
+
+### dsf:frame call ストレージ領域
+
+`dsf:frame call`は、`issue_with_run`が発行したhandleと渡された初期引数を組み立てるために使用するグローバルな一時storage領域です。
+
+`call` は状態保存用ではなく、呼び出し直前の短命なバッファとしてのみ使用します。呼び出し先の関数は、受け取った値を自身のframeにコピーして扱うため、`call`が後続の呼び出しで上書きされても、既存frame の状態には影響しません。
