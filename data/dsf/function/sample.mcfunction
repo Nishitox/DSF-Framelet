@@ -20,7 +20,7 @@ $data modify storage dsf:frame "$(handle)".arg.route set value "branch"
 # 任意の処理：elemを出力する
 $say @a $(elem)
 # prm.list[0]を削除し、prm.list[0]が存在する場合、再実行する
-$execute store result score #return dsf.control run function dsf:data/list/next {handle: $(handle)}
+$execute store result score #return dsf.control run function dsf:data/list/next {handle: $(handle), name: "list"}
 $execute if score #return dsf.control matches 1 run function dsf:sample with storage dsf:frame "$(handle)".arg
 
 
@@ -30,6 +30,5 @@ $data modify storage dsf:frame "$(handle)".prm.route set value "$(route)"
 $execute if data storage dsf:frame "$(handle)".prm{route: "branch"} run return 0
 # 任意の処理：終了メッセージを出力する
 say @a done
-# frameとhandleを解放する
-$data remove storage dsf:frame "$(handle)"
-$function dsf:data/handle/release {target: $(handle)}
+# $(handle)と対象のframeを解放する。
+$function dsf:data/handle/release {handle: $(handle)}
