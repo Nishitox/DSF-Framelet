@@ -12,8 +12,9 @@ execute store result storage dsf:handle cursor int 1 run scoreboard players get 
 # $(cursor)がusedに存在する場合、実行を終了して再実行する
 $execute if data storage dsf:handle used."$(cursor)" run return run function dsf:frame/handle/issue with storage dsf:handle
 
-# $(cursor)がusedに存在しない場合、$(cursor)をusedに登録する
+# $(cursor)がusedに存在しない場合、$(cursor)をusedとcacheに登録する
 $data modify storage dsf:handle used."$(cursor)" set value 1b
+$data modify storage dsf:handle cache append value $(cursor)
 
 # $(cursor)を返す
 $return $(cursor)
