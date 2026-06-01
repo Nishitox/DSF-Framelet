@@ -1,5 +1,5 @@
 # /function dsf:frame/handle/issue_with_run {path:"dsfsample:sample", arg:{route: "init", elem:""}}
-# /function dsfsample:sample {path:"dsfsample:sample", handle:n, route:"init/root"/"branch", elem:"", }
+# /function dsfsample:sample {path:"dsfsample:sample", handle:n, route:"init/root"/"branch", elem:""}
 
 # 固定処理：必要な引数をarg及びprmに格納する
 $data modify storage dsf:frame "$(handle)".arg.path set value "$(path)"
