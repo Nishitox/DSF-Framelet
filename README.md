@@ -20,3 +20,17 @@ DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function
 `dsf:frame call`は、`issue_with_run`が発行したhandleと渡された初期引数を組み立てるために使用するグローバルな一時storage領域です。
 
 `call` は状態保存用ではなく、呼び出し直前の短命なバッファとしてのみ使用します。呼び出し先の関数は、受け取った値を自身のframeにコピーして扱うため、`call`が後続の呼び出しで上書きされても、既存frame の状態には影響しません。
+
+
+---
+
+### 引数の記述順ルール
+
+引数や処理において、順番が処理結果に影響しない場合、引数の並び順は原則として以下の順序に統一します。
+
+1. path: 実行対象の関数（dsf:sample）
+2. handle: 操作対象となるframeを指す番号
+3. route: frame関数内で通る実行経路（init/root/branch）
+4. elem: frame関数内で使用する現在の配列要素
+
+例：`/function dsf:sample {path:"dsf:sample", handle:1, route:"root", elem:""}`
