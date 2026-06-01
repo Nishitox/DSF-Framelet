@@ -1,4 +1,4 @@
-# DSF Sidekick
+# DSF Framelet
 
 DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function呼び出しごとに一意なstorage領域を動的に確保し、その参照IDをmacro引数として受け渡すことで、Minecraft functionに疑似的なローカル変数環境を提供する仕組み、およびコード設計パターンです。
 
