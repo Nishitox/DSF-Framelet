@@ -1,6 +1,7 @@
-# /function dsf:data/handle/issue_with_run {run:"dsf:sample", arg:{route: "init", elem:""}}
-# /function dsf:sample {route:"init/root"/"branch", elem:"", handle:n}
+# /function dsf:frame/handle/issue_with_run {run:"dsf:sample", arg:{route: "init", elem:""}}
+# /function dsf:sample {run:"dsf:sample", route:"init/root"/"branch", elem:"", handle:n}
 $data modify storage dsf:frame "$(handle)".arg.handle set value $(handle)
+$data modify storage dsf:frame "$(run)".arg.handle set value $(run)
 $data modify storage dsf:frame "$(handle)".prm.route set value "$(route)"
 
 
@@ -31,4 +32,4 @@ $execute if data storage dsf:frame "$(handle)".prm{route: "branch"} run return 0
 # 任意の処理：終了メッセージを出力する
 say @a done
 # $(handle)と対象のframeを解放する。
-$function dsf:data/handle/release {handle: $(handle)}
+$function dsf:frame/release {handle: $(handle)}

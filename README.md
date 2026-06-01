@@ -9,7 +9,7 @@ DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function
 
 ### issue_with_run 関数
 
-`dsf:data/handle/issue_with_run`は、新しいframe用のhandleを発行し、指定された初期引数にそのhandleを追加して、対象のframe関数を実行するための補助関数です。
+`dsf:frame/handle/issue_with_run`は、新しいframe用のhandleを発行し、指定された初期引数にそのhandleを追加して、対象のframe関数を実行するための補助関数です。
 
 通常、frame関数を開始するには、先にhandleを発行し、そのhandleと初期引数を組み合わせてframe関数を呼び出す必要があります。`issue_with_run`関数はこの手続きをまとめて行い、開発者がhandle発行処理を個別に記述せずにframe関数を開始できるようにします。
 
