@@ -42,4 +42,7 @@ DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function
 以下の関数をサンプルとして利用できます。
 
 - `dsfsample:sample`: サンプル用関数。配列を作成し、ループ処理を行います
+  - `/function dsf:frame/handle/issue_with_run {path:"dsfsample:sample", arg:{route: "init", elem:0}`
+
 - `dsf:frame/format`: 解放されず残留したdsf:frameストレージを一括解放する関数
+  - `/function dsf:frame/handle/issue_with_run {path:"dsf:frame/format", arg:{route: "init", elem:0}}`
