@@ -2,9 +2,8 @@
 # /function dsfsample:sample {path:"dsfsample:sample", handle:n, route:"init/root"/"branch", elem:0}
 
 # 固定処理：必要な引数をarg及びprmに格納する
-$data modify storage dsf:frame "$(handle)".arg.path set value "$(path)"
-$data modify storage dsf:frame "$(handle)".arg.handle set value "$(handle)"
-$data modify storage dsf:frame "$(handle)".prm.route set value "$(route)"
+$data merge storage dsf:frame {"$(handle)":{arg:{path:"$(path)", handle:"$(handle)"}}}
+$data merge storage dsf:frame {"$(handle)":{prm:{route:"$(route)"}}}
 
 
 ### init ###
