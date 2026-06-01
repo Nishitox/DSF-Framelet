@@ -29,4 +29,4 @@ $execute if data storage dsf:frame "$(handle)".prm{route: "branch"} run return 0
 # 任意処理：終了メッセージを出力する
 say @a done
 # 固定処理：$(handle)と対象のframeを解放する。
-# $function dsf:frame/release {handle: $(handle)}
+$function dsf:frame/release {handle: $(handle)}
