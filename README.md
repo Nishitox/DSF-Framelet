@@ -28,9 +28,18 @@ DSF（Dynamic Storage Frame / 動的ストレージフレーム）は、function
 
 引数や処理において、順番が処理結果に影響しない場合、引数の並び順は原則として以下の順序に統一します。
 
-1. path: 実行対象の関数（dsfsample:sample）
-2. handle: 操作対象となるframeを指す番号
-3. route: frame関数内で通る実行経路（init/root/branch）
-4. elem: frame関数内で使用する現在の配列要素
+1. `path`: 実行対象の関数（dsfsample:sample）
+2. `handle`: 操作対象となるframeを指す番号
+3. `route`: frame関数内で通る実行経路（init/root/branch）
+4. `elem`: frame関数内で使用する現在の配列要素
 
 例：`/function dsfsample:sample {path:"dsfsample:sample", handle:1, route:"root", elem:""}`
+
+---
+
+### サンプルコード
+
+以下の関数をサンプルとして利用できます。
+
+- `dsfsample:sample`: サンプル用関数。配列を作成し、ループ処理を行います
+- `dsf:frame/format`: 解放されず残留したdsf:frameストレージを一括解放する関数
