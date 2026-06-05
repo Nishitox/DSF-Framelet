@@ -16,4 +16,4 @@ data remove storage dsf:frame call
 # set storage
 data modify storage dsf:handle cursor set value 0
 data modify storage dsf:handle used set value {}
-function dsf:frame/handle/issue_with_run {path:"dsf:frame/format", arg:{route: "init", elem:0}}
+function dsf:frame/handle/issue_with_run {path:"dsf:frame/format", arg:{route:"init", elem:0}}

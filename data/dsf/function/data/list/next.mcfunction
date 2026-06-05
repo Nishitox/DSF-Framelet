@@ -1,4 +1,4 @@
-# /function dsf:data/list/next {handle: n, name:"list"}
+# /function dsf:data/list/next {handle:"n", name:"list"}
 
 # prm.$(name)[0]を削除する
 $data remove storage dsf:frame "$(handle)".prm."$(name)"[0]
