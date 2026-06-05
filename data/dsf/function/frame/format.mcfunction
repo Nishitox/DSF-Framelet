@@ -15,8 +15,6 @@ $execute if data storage dsf:frame "$(handle)".prm{route: "init"} run return run
 
 
 ### root/branch: loop ###
-# 固定処理：arg.routeをbranchに設定する
-$data modify storage dsf:frame "$(handle)".arg.route set value "branch"
 # 任意処理：frameを削除する
 $execute unless data storage dsf:frame "$(handle)".arg{handle: "$(elem)"} run data remove storage dsf:frame $(elem)
 $execute unless data storage dsf:frame "$(handle)".arg{handle: "$(elem)"} run say frame.$(elem)を削除しました

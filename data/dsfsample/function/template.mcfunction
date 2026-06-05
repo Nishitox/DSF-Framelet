@@ -14,8 +14,6 @@ $execute if data storage dsf:frame "$(handle)".prm{route: "init"} run return run
 
 
 ### root/branch: loop ###
-# 固定処理：arg.routeをbranchに設定する
-$data modify storage dsf:frame "$(handle)".arg.route set value "branch"
 # 任意処理：ループ処理を記述する（配列要素の処理など）
 
 # 固定処理：prm.listを次に進め、再実行する
